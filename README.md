@@ -17,14 +17,23 @@ Built with **React**, **Node.js**, **Express**, **PostgreSQL**, and integrated w
 **Authentication:** JWT & bcrypt
 
 ## 📂 Project Structure
+
 online-courses/
+
 ├── backend/ # Express API & Stripe integration
+
 │ ├── src/
+
 │ ├── .env
+
 │ └── package.json
+
 ├── frontend/ # React client application
+
 │ ├── src/
+
 │ ├── package.json
+
 └── README.md
 
 
