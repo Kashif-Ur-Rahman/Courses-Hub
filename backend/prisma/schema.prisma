@@ -1,0 +1,100 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+
+  courses     Course[]     @relation("UserCourses") // Instructor's courses
+  enrollments Enrollment[]
+  payments    Payment[]
+  purchases   Purchase[]
+}
+
+model Course {
+  id           Int      @id @default(autoincrement())
+  title        String
+  price        Float
+  createdAt    DateTime @default(now())
+  instructorId Int
+  instructor   User     @relation("UserCourses", fields: [instructorId], references: [id])
+
+  enrollments Enrollment[]
+  payments    Payment[]
+  purchases   Purchase[]
+  liveStream  LiveStream?
+  materials   Material[]
+  streams     Stream[]
+}
+
+model LiveStream {
+  id            Int      @id @default(autoincrement())
+  courseId      Int      @unique
+  course        Course   @relation(fields: [courseId], references: [id])
+  muxStreamId   String
+  muxPlaybackId String
+  status        String
+  createdAt     DateTime @default(now())
+}
+
+model Enrollment {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  courseId  Int
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+}
+
+model Payment {
+  id            Int      @id @default(autoincrement())
+  stripeSession String
+  userId        Int
+  courseId      Int
+  amountCents   Int
+  currency      String
+  status        String
+  createdAt     DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+}
+
+model Purchase {
+  id            Int    @id @default(autoincrement())
+  userId        Int
+  courseId      Int
+  paymentStatus String
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+}
+
+model Material {
+  id       Int    @id @default(autoincrement())
+  courseId Int
+  fileKey  String
+  fileName String
+
+  course Course @relation(fields: [courseId], references: [id])
+}
+
+model Stream {
+  id          Int    @id @default(autoincrement())
+  courseId    Int
+  streamKey   String
+  playbackUrl String
+
+  course Course @relation(fields: [courseId], references: [id])
+}

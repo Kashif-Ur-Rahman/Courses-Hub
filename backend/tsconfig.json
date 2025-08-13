@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",                // keep source organized
+    "outDir": "./dist",                // compiled JS will go here
+
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "sourceMap": true,
+    "declaration": false,              // no need for d.ts unless making a lib
+
+    "strict": true,
+    "skipLibCheck": true,
+
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
