@@ -56,12 +56,17 @@ npm install
 npm run dev
 
 🔑 Environment Variables
+
 Backend .env file example:
+
 PORT=5000
-MONGO_URI=your-mongodb-uri
+
 JWT_SECRET=your-secret
+
 STRIPE_SECRET_KEY=sk_test_xxx
+
 STRIPE_WEBHOOK_SECRET=whsec_xxx
+
 CLIENT_URL= http://localhost:5173/
 
 🧪 Stripe Test Payments
