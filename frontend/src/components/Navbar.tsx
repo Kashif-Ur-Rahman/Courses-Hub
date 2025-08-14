@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function Navbar() {
                 className="hamburger"
                 onClick={() => setMenuOpen((prev) => !prev)}
             >
-                ☰
+                {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
 
             {/* Navigation Links */}

@@ -1,10 +1,12 @@
-import * as jwt from "jsonwebtoken";
+// backend/src/utils/muxUtils.ts
 
-const keyId = process.env.MUX_SIGNING_KEY as string;
-const secret = process.env.MUX_SIGNING_SECRET as string;
+import jwt from "jsonwebtoken";
 
-if (!keyId || !secret) {
-    throw new Error("MUX_SIGNING_KEY or MUX_SIGNING_SECRET not set in environment variables.");
+const signingKeyId = process.env.MUX_SIGNING_KEY_ID as string;
+const signingKeyPrivate = process.env.MUX_SIGNING_KEY_PRIVATE as string;
+
+if (!signingKeyId || !signingKeyPrivate) {
+    throw new Error("MUX_SIGNING_KEY_ID or MUX_SIGNING_KEY_PRIVATE not set in environment variables.");
 }
 
 export function generateSignedPlaybackUrl(
@@ -24,12 +26,12 @@ export function generateSignedPlaybackToken(
 ): string {
     return jwt.sign(
         {
-            kid: keyId,
+            kid: signingKeyId,
             playback_id: playbackId,
             type,
             exp,
         },
-        secret,
-        { algorithm: "HS256" }
+        signingKeyPrivate,
+        { algorithm: "RS256" } // Use RS256 for MUX signed URLs
     );
 }
