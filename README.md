@@ -40,7 +40,7 @@ online-courses/
 ## ⚙️ Installation
 
 ### 1️⃣ Clone the repository
-```bash
+
 git clone https://github.com/YOUR-USERNAME/online-courses.git
 cd online-courses
 
@@ -49,23 +49,23 @@ cd backend
 npm install
 cp .env.example .env  # Add your MongoDB URI & Stripe keys
 npm run dev
-3️⃣ Frontend Setup
 
+3️⃣ Frontend Setup
 cd ../frontend
 npm install
-npm start
+npm run dev
+
 🔑 Environment Variables
 Backend .env file example:
-
 PORT=5000
 MONGO_URI=your-mongodb-uri
 JWT_SECRET=your-secret
 STRIPE_SECRET_KEY=sk_test_xxx
 STRIPE_WEBHOOK_SECRET=whsec_xxx
 CLIENT_URL=http://localhost:3000
+
 🧪 Stripe Test Payments
 Use the following test card to simulate payments:
-
 Card Number: 4242 4242 4242 4242
 Expiry Date: Any future date
 CVC: Any 3 digits
