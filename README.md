@@ -46,14 +46,21 @@ git clone https://github.com/YOUR-USERNAME/online-courses.git
 cd online-courses
 
 2️⃣ Backend Setup
+
 cd backend
+
 npm install
+
 cp .env.example .env  # Add your MongoDB URI & Stripe keys
+
 npm run dev
 
 3️⃣ Frontend Setup
+
 cd ../frontend
+
 npm install
+
 npm run dev
 
 🔑 Environment Variables
