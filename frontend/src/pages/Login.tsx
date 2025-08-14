@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -25,10 +26,10 @@ export default function Login() {
             // Store JWT token
             localStorage.setItem("token", data.token);
 
-            alert("Login successful!");
+            toast.success("Login successful!");
             navigate("/"); // redirect to home
         } catch (err: any) {
-            alert(err.message);
+            toast.error(err.message);
         }
     };
 
