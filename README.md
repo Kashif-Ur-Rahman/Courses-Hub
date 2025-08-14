@@ -51,7 +51,7 @@ cd backend
 
 npm install
 
-cp .env.example .env  # Add your MongoDB URI & Stripe keys
+stripe.exe listen --forward-to localhost:5000/api/payments/webhooks/stripe
 
 npm run dev
 
