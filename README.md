@@ -42,6 +42,7 @@ online-courses/
 ### 1️⃣ Clone the repository
 
 git clone https://github.com/YOUR-USERNAME/online-courses.git
+
 cd online-courses
 
 2️⃣ Backend Setup
@@ -70,8 +71,13 @@ STRIPE_WEBHOOK_SECRET=whsec_xxx
 CLIENT_URL= http://localhost:5173/
 
 🧪 Stripe Test Payments
+
 Use the following test card to simulate payments:
+
 Card Number: 4242 4242 4242 4242
+
 Expiry Date: Any future date
+
 CVC: Any 3 digits
+
 ZIP: Any 5 digits
