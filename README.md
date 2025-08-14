@@ -62,7 +62,7 @@ MONGO_URI=your-mongodb-uri
 JWT_SECRET=your-secret
 STRIPE_SECRET_KEY=sk_test_xxx
 STRIPE_WEBHOOK_SECRET=whsec_xxx
-CLIENT_URL=http://localhost:3000
+CLIENT_URL= http://localhost:5173/
 
 🧪 Stripe Test Payments
 Use the following test card to simulate payments:
