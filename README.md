@@ -57,7 +57,7 @@ npm run dev
 
 3️⃣ Frontend Setup
 
-cd ../frontend
+cd ./frontend
 
 npm install
 
